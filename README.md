@@ -123,17 +123,20 @@ return 0;
 ------------------------------------------------------------
 
 🧠 Modules Explained
-```text
-Module                           Description
-watchdog.c                       Interface for MakeMeImmortal() and thread setup
-watchdog_exec.c                  Executed process that watches the parent process
-watchdog_utils.c                 Heartbeat logic, task scheduling, process control
-scheduler.c                      Generic recurring task manager (with intervals)
-uid.c                            Generates unique task IDs
-sorted_list.c                    Sorted data structure used by other modules
-doubly_linked_list.c             Base data structure for queues and task lists
-priority_queue.c                 Priority-based wrapper for task execution
-task.c                           Encapsulates a task: function, args, timing
+
+```markdown
+| **Module**            | **Description**                                         |
+|-----------------------|---------------------------------------------------------|
+| `watchdog.c`          | Interface for `MakeMeImmortal()` and thread setup       |
+| `watchdog_exec.c`     | Executed process that watches the parent process        |
+| `watchdog_utils.c`    | Heartbeat logic, task scheduling, process control       |
+| `scheduler.c`         | Generic recurring task manager (with intervals)         |
+| `uid.c`               | Generates unique task IDs                               |
+| `sorted_list.c`       | Sorted data structure used by other modules             |
+| `doubly_linked_list.c`| Base data structure for queues and task lists           |
+| `priority_queue.c`    | Priority-based wrapper for task execution               |
+| `task.c`              | Encapsulates a task: function, args, timing             |
+
 ```
 
 ------------------------------------------------------------
