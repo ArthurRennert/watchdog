@@ -1,3 +1,14 @@
+/**
+ * @file watchdog_utils.c
+ * @brief Implementation of the internal watchdog logic and process management.
+ *
+ * This file defines the behavior of the watchdog system, including:
+ *  - Creating and monitoring a target process
+ *  - Scheduling heartbeat signals
+ *  - Reacting to process failure
+ *  - Handling POSIX signals for inter-process communication
+ */
+ 
 #define _POSIX_C_SOURCE 199506L
 
 #include <stdlib.h>

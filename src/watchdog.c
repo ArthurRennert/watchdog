@@ -1,3 +1,21 @@
+/**
+ * @file watchdog.c
+ * @brief Core implementation of the Watchdog system.
+ *
+ * This module provides functionality to turn a process into an "immortal"
+ * one by spawning a watchdog thread that monitors it and restarts it
+ * when necessary.
+ *
+ * The watchdog operates using a scheduler-based mechanism and communicates
+ * via signals. This file creates the watchdog arguments, spawns the thread,
+ * and defines the recovery logic.
+ *
+ * Dependencies:
+ *  - pthread
+ *  - POSIX system headers (unistd.h, sys/types.h, etc.)
+ *  - Custom utilities: watchdog_utils.h, utils.h
+ */
+ 
 #define _POSIX_C_SOURCE 200809L
 
 #include <stddef.h>     /* using size_t                 */
