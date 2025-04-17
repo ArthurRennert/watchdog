@@ -37,27 +37,27 @@ This setup ensures high availability, resilience, and complete autonomy — with
 ## 🧪 Getting Started
 
 ### ✅ Compilation
-
+```c
 gcc src/client_test.c libwatchdog.a -I include/ -o client_test
-
+```
 ------------------------------------------------------------
 
 ### ▶️ Run
-
+```c
 ./client_test
-
+```
 Now try killing it from another terminal:
-
+```c
 kill -9 <PID_OF_CLIENT>
-
+```
 Within a few seconds, it comes back to life — revived by the watchdog.
 
 ------------------------------------------------------------
 
 🔬 API Overview
-
+```c
 int MakeMeImmortal(int argc, char* argv[], unsigned long interval, int max_fails);
-
+```
 Initializes a watchdog thread and launches a separate watchdog process that monitors this one.
 
 interval: Time in seconds between checks (e.g., 6)
@@ -68,6 +68,7 @@ max_fails: How many missed checks to tolerate before restarting (e.g., 4)
 
 🧪 Example
 
+```c
 int main(int argc, char** argv)
 {
     MakeMeImmortal(argc, argv, 6, 4); // Every 6 seconds, allow 4 missed heartbeats
@@ -80,17 +81,19 @@ int main(int argc, char** argv)
 
     return 0;
 }
+```
+------------------------------------------------------------
 
 ✋ DoNotResuscitate()
 
 Call this when your program exits intentionally.
 It prevents the watchdog from reviving it again.
 
-🧪 Example:
-
+🧪 Example
+```c
 DoNotResuscitate();
 return 0;
-
+```
 ------------------------------------------------------------
 
 🧱 Project Structure:
@@ -120,7 +123,7 @@ return 0;
 ------------------------------------------------------------
 
 🧠 Modules Explained
-
+```text
 Module                           Description
 watchdog.c                       Interface for MakeMeImmortal() and thread setup
 watchdog_exec.c                  Executed process that watches the parent process
@@ -131,21 +134,21 @@ sorted_list.c                    Sorted data structure used by other modules
 doubly_linked_list.c             Base data structure for queues and task lists
 priority_queue.c                 Priority-based wrapper for task execution
 task.c                           Encapsulates a task: function, args, timing
-
+```
 
 ------------------------------------------------------------
 
 You can link it to your own projects using:
-
+```c
 gcc your_file.c libwatchdog.a -I include/
-
+```
 
 ------------------------------------------------------------
 
 ⚙️ How the Scheduler Works
-
+```c
 SchedAddTask(scheduler, SendSolTSK, DoNothingTSK, wd_ptr, NULL, 6);
-
+```
 Each task:
 
 Has an action (what to do)
@@ -157,7 +160,7 @@ Can be added/removed dynamically
 ------------------------------------------------------------
 
 🔁 Communication Flow
-
+```text
 client_test             watchdog_exec
      |                        |
      | --> fork + execv() --> |
@@ -169,7 +172,7 @@ client_test             watchdog_exec
      | <----- SIGKILL ------- |
      | <----- execv() ------- |  (restart)
 
-
+```
 ------------------------------------------------------------
 
 📄 Example Log Output
