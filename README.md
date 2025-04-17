@@ -125,7 +125,7 @@ return 0;
 🧠 Modules Explained
 
 ```markdown
-| **Module**            | **Description**                                         |
+| Module                | Description                                             |
 |-----------------------|---------------------------------------------------------|
 | `watchdog.c`          | Interface for `MakeMeImmortal()` and thread setup       |
 | `watchdog_exec.c`     | Executed process that watches the parent process        |
