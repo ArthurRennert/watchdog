@@ -97,7 +97,7 @@ return 0;
 ------------------------------------------------------------
 
 🧱 Project Structure:
-
+```text
 .
 ├── src/
 │   ├── client_test.c         # Sample monitored process
@@ -119,7 +119,7 @@ return 0;
 │
 ├── Makefile
 └── README.md
-
+```
 ------------------------------------------------------------
 
 🧠 Modules Explained
