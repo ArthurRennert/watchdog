@@ -179,7 +179,7 @@ client_test             watchdog_exec
 ------------------------------------------------------------
 
 📄 Example Log Output
-
+```text
 ps in watchdog.c MMI
 PID   TTY   ...
 1234  pts/1 ./client_test
@@ -188,7 +188,7 @@ Received SIGUSR1!
 ps in watchdog_utils.c ReviveIfErrorTSK
 1234  pts/1 ./client_test
 1235  pts/1 ./watchdog_exec
-
+```
 ------------------------------------------------------------
 
 🧪 Test it Yourself
